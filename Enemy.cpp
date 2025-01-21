@@ -12,10 +12,12 @@ Enemy::Enemy(Vector2 pos, float speed) {
 /// 敵の移動処理
 /// </summary>
 void Enemy::Update() {
-  pos_.x += speed_;
+  if (Enemy::isAlive_) {
+    pos_.x += speed_;
 
-  if (pos_.x + radius_ >= 1280.0f || pos_.x - radius_ <= 0.0f) {
-    speed_ = -speed_;
+    if (pos_.x + radius_ >= 1280.0f || pos_.x - radius_ <= 0.0f) {
+      speed_ = -speed_;
+    }
   }
 }
 
